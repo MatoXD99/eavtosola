@@ -1,7 +1,7 @@
 const stats = [
     { name: 'Prevožene ure', stat: '18ur' },
     { name: 'Še zakupljenih ur', stat: '12ur' },
-    { name: 'Povp. cena ure', stat: '44€' },
+    { name: 'Cena ure', stat: '41,00€' },
 ]
 
 export default function HoursStatistics() {

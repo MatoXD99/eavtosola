@@ -19,7 +19,7 @@ function classNames(...classes) {
 
 export default function Steps() {
     return (
-        <nav aria-label="Progress">
+        <nav className='pt-10' aria-label="Progress">
             <ol role="list" className="overflow-hidden">
                 {steps.map((step, stepIdx) => (
                     <li key={step.name} className={classNames(stepIdx !== steps.length - 1 ? 'pb-10' : '', 'relative')}>

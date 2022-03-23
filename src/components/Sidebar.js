@@ -5,15 +5,20 @@ import {
     FolderIcon,
     HomeIcon,
     MenuIcon,
-    UsersIcon,
     XIcon,
+    ShieldCheckIcon,
+    UserIcon,
+    ClockIcon,
 } from '@heroicons/react/outline'
 
 const navigation = [
     { name: 'Statistika', href: '/', icon: HomeIcon, current: true },
-    { name: 'Ure vožnje', href: '/lessons', icon: UsersIcon, current: false },
-    { name: 'Inštruktor', href: '/instructor', icon: FolderIcon, current: false },
-    { name: 'Koledar', href: '/calendar', icon: CalendarIcon, current: false },
+    { name: 'Ure vožnje', href: '/lessons', icon: ClockIcon, current: false },
+    { name: 'Vsi inštruktorji', href: '/instructor', icon: FolderIcon, current: false },
+
+    { name: 'Učenci', href: '/students', icon: UserIcon, current: false },
+
+    { name: 'Administrator', href: '/administrato', icon: ShieldCheckIcon, current: false },
 ]
 
 function classNames(...classes) {
@@ -188,9 +193,6 @@ export default function Sidebar(props) {
                     </div>
                     <main className="flex-1">
                         <div className="py-6">
-                            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                <h1 className="text-2xl font-semibold text-gray-900 mb-6">Statistika</h1>
-                            </div>
                             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
                                 {props.children}
                             </div>
