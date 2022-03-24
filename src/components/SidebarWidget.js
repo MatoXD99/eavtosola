@@ -1,24 +1,18 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
-    CalendarIcon,
     FolderIcon,
     HomeIcon,
     MenuIcon,
     XIcon,
     ShieldCheckIcon,
     UserIcon,
-    ClockIcon,
 } from '@heroicons/react/outline'
 
 const navigation = [
-    { name: 'Statistika', href: '/', icon: HomeIcon, current: true },
-    { name: 'Ure vožnje', href: '/lessons', icon: ClockIcon, current: false },
-    { name: 'Vsi inštruktorji', href: '/instructor', icon: FolderIcon, current: false },
-
-    { name: 'Učenci', href: '/students', icon: UserIcon, current: false },
-
-    { name: 'Administrator', href: '/administrato', icon: ShieldCheckIcon, current: false },
+    { name: 'Evidenčni karton vožnje', href: '/dashboard/', icon: FolderIcon, current: true },
+    { name: 'Statistika', href: '/dashboard/statistics', icon: HomeIcon, current: false },
+    { name: 'Administrator', href: '/dashboard/administrator', icon: ShieldCheckIcon, current: false },
 ]
 
 function classNames(...classes) {
@@ -104,6 +98,8 @@ export default function Sidebar(props) {
                                         ))}
                                     </nav>
                                 </div>
+                                {/* BOTTOM PROFILE SECTION */}
+                                {/*
                                 <div className="flex-shrink-0 flex bg-gray-700 p-4">
                                     <a href="/profile" className="flex-shrink-0 group block">
                                         <div className="flex items-center">
@@ -121,6 +117,7 @@ export default function Sidebar(props) {
                                         </div>
                                     </a>
                                 </div>
+                                */}
                             </div>
                         </Transition.Child>
                         <div className="flex-shrink-0 w-14">{/* Force sidebar to shrink to fit close icon */}</div>
@@ -161,6 +158,8 @@ export default function Sidebar(props) {
                                 ))}
                             </nav>
                         </div>
+                        {/* BOTTOM PROFILE SECTION */}
+                        {/*
                         <div className="flex-shrink-0 flex bg-gray-700 p-4">
                             <a href="/profile" className="flex-shrink-0 w-full group block">
                                 <div className="flex items-center">
@@ -178,6 +177,7 @@ export default function Sidebar(props) {
                                 </div>
                             </a>
                         </div>
+                        */}
                     </div>
                 </div>
                 <div className="md:pl-64 flex flex-col flex-1">

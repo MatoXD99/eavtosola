@@ -1,16 +1,12 @@
 import { CheckIcon } from '@heroicons/react/solid'
 
 const steps = [
-    { name: 'Prva pomoč', description: 'Vitae sed mi luctus laoreet.', href: '#', status: 'complete' },
-    {
-        name: 'Predavanja',
-        description: 'Cursus semper viverra facilisis et et some more.',
-        href: '#',
-        status: 'current',
-    },
-    { name: 'CPP Izpiz', description: 'Penatibus eu quis ante.', href: '#', status: 'upcoming' },
-    { name: 'Ure vožnje', description: 'Faucibus nec enim leo et.', href: '#', status: 'upcoming' },
-    { name: 'Izpitna ura', description: 'Iusto et officia maiores porro ad non quas.', href: '#', status: 'upcoming' },
+    { name: 'Prva pomoč', status: 1 },
+    { name: 'Predavanja', status: 1, },
+    { name: 'CPP izpit', status: 1 },
+    { name: 'Zdravniški pregled', status: 1 },
+    { name: 'Ure vožnje', status: 0 },
+    { name: 'Izpitna ura', status: 0 },
 ]
 
 function classNames(...classes) {
@@ -19,14 +15,14 @@ function classNames(...classes) {
 
 export default function Steps() {
     return (
-        <nav className='pt-10' aria-label="Progress">
+        <nav className='' aria-label="Progress">
             <ol role="list" className="overflow-hidden">
                 {steps.map((step, stepIdx) => (
                     <li key={step.name} className={classNames(stepIdx !== steps.length - 1 ? 'pb-10' : '', 'relative')}>
-                        {step.status === 'complete' ? (
+                        {step.status === 1 ? (
                             <>
                                 {stepIdx !== steps.length - 1 ? (
-                                    <div className="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-indigo-600" aria-hidden="true" />
+                                    <div className="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-gray-300" aria-hidden="true" />
                                 ) : null}
                                 <a href={step.href} className="relative flex items-start group">
                                     <span className="h-9 flex items-center">
@@ -40,15 +36,15 @@ export default function Steps() {
                                     </span>
                                 </a>
                             </>
-                        ) : step.status === 'current' ? (
+                        ) : step.status === 0 ? (
                             <>
                                 {stepIdx !== steps.length - 1 ? (
                                     <div className="-ml-px absolute mt-0.5 top-4 left-4 w-0.5 h-full bg-gray-300" aria-hidden="true" />
                                 ) : null}
                                 <a href={step.href} className="relative flex items-start group" aria-current="step">
                                     <span className="h-9 flex items-center" aria-hidden="true">
-                                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-indigo-600 rounded-full">
-                                            <span className="h-2.5 w-2.5 bg-indigo-600 rounded-full" />
+                                        <span className="relative z-10 w-8 h-8 flex items-center justify-center bg-white border-2 border-gray-300 rounded-full group-hover:border-gray-400">
+                                            <span className="h-2.5 w-2.5 bg-transparent rounded-full group-hover:bg-gray-300" />
                                         </span>
                                     </span>
                                     <span className="ml-4 min-w-0 flex flex-col">
