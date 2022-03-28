@@ -17,6 +17,7 @@ import Error404Page from './dashboard/Error404Page'
 import LoginPage from './landing/LoginPage'
 import ForgotPasswordPage from './landing/ForgotPasswordPage'
 import LandingPage from './landing/LandingPage'
+import SelectCandidatePage from "./dashboard/SelectCandidatePage"
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <Routes>
         <Route path="*" element={<Error404Page />} />
 
-        <Route path="/dashboard/" element={<DrivingRecordCardPage />} />
+        <Route path="/dashboard/" element={<SelectCandidatePage />} />
         <Route path="/dashboard/statistics" element={<StatisticsPage />} />
         <Route path="/dashboard/calendar" element={<CalendarPage />} />
         <Route path="/dashboard/editcandidates" element={<EditCandidatesPage />} />

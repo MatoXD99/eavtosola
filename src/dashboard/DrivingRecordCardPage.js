@@ -1,18 +1,14 @@
 import React from 'react'
 import SidebarWidget from '../components/SidebarWidget'
 import DrivenHoursWidget from '../components/DrivenHoursWidget'
-import StatisticsWidget from '../components/StatisticsWidget'
 
 import StepsWidget from '../components/StepsWidget'
 import HeadingWidget from '../components/HeadingWidget'
 import CandidateHeadingWidget from '../components/CandidateHeadingWidget'
-import CandidatePicker from '../components/CandidatePicker'
 
 function DrivingRecordCardPage() {
     return (
         <SidebarWidget>
-            <CandidatePicker />
-
             <CandidateHeadingWidget />
             <DrivenHoursWidget />
 

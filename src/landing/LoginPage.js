@@ -1,4 +1,31 @@
+import Axios from 'axios';
+import { useState } from 'react';
+
 export default function Login() {
+    const url = "http://localhost:3500/api/users/login"
+
+    const [data, setData] = useState({
+        username: "",
+        password: "",
+    })
+
+    function submit(e) {
+        e.preventDefault()
+        Axios.post(url, {
+            username: data.username,
+            password: data.password
+        }).then(res => {
+            console.log(res.data)
+        })
+    }
+
+    function handle(e) {
+        const newData = { ...data }
+        newData[e.target.id] = e.target.value
+        setData(newData)
+        console.log(newData)
+    }
+
     return (
         <>
             <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -18,10 +45,10 @@ export default function Login() {
 
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                        <form className="space-y-6" action="/api/login" method="POST">
+                        <form onSubmit={(e) => submit(e)} className="space-y-6" action="http://localhost:3500/api/users/login" method="POST">
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                    Email naslov
+                                <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                                    Uporabniško ime
                                 </label>
                                 <div className="mt-1 sm:mt-0 sm:col-span-2">
                                     <div className="max-w-lg flex rounded-md shadow-sm">
@@ -32,6 +59,8 @@ export default function Login() {
                                             type="text"
                                             name="username"
                                             id="username"
+                                            value={data.username}
+                                            onChange={(e) => handle(e)}
                                             autoComplete="username"
                                             className="flex-1 block w-full focus:ring-indigo-500 focus:border-indigo-500 min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                         />
@@ -45,9 +74,11 @@ export default function Login() {
                                 </label>
                                 <div className="mt-1">
                                     <input
-                                        id="password"
                                         name="password"
                                         type="password"
+                                        id="password"
+                                        value={data.password}
+                                        onChange={(e) => handle(e)}
                                         autoComplete="current-password"
                                         required
                                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"

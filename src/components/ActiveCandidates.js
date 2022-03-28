@@ -93,7 +93,7 @@ export default function ActiveCandidates() {
 
   return (
     <>
-      <AddNewUserModal />
+      {/*<AddNewUserModal />*/}
 
       {openNewUser ? <AddNewUserWidget setOpen={setOpen} openNewUser={openNewUser} /> : <div className="px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center">
